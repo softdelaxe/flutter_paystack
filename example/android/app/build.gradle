@@ -15,21 +15,32 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
+buildscript {
+    ext.kotlin_version = '1.7.10'  // Set Kotlin version here
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
 android {
-    compileSdkVersion 32
+    compileSdkVersion 33
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
-    lintOptions {
-        disable 'InvalidPackage'
+    lint {
+        disable 'InvalidPackage'  // Use `lint` if your Gradle version supports it
     }
 
     defaultConfig {
         applicationId "co.paystack.flutterpaystack"
         minSdkVersion 16
-        targetSdkVersion 32
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -39,6 +50,15 @@ android {
         release {
             signingConfig signingConfigs.debug
         }
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"  // Set to "17" if using Java 17
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8  // Change to 17 if needed
+        targetCompatibility = JavaVersion.VERSION_1_8  // Change to 17 if needed
     }
 }
 
