@@ -41,7 +41,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"  // Ensure this is set to 1.8 to match Java compatibility
+        jvmTarget = "1.8.0"  // Ensure this is set to 1.8 to match Java compatibility
     }
 
     buildTypes {
