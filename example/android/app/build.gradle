@@ -2,7 +2,7 @@ plugins {
     id "com.android.application"
     id "kotlin-android"
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
-    id "dev.flutter.flutter-gradle-plugin"
+    //id "dev.flutter.flutter-gradle-plugin"
 }
 
 def localProperties = new Properties()
@@ -41,7 +41,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = '>=1.7.20 <2.0' // Ensure this is set to 1.8 to match Java compatibility
+        jvmTarget = '1.8.0' // Ensure this is set to 1.8 to match Java compatibility
     }
 
     buildTypes {
